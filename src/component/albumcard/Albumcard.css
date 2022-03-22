@@ -1,0 +1,58 @@
+.Album-wrapper{
+    /* text-align: center; */
+    float: left;
+    margin: 10px 20px;
+    width: 20%;
+    background-color: rgb(17, 17, 17);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px  rgba(0, 0, 0, 0.363);
+}
+
+
+.Album-image img{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+}
+
+p{
+    color: white;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.Album-name{
+    font-size: 10px;
+}
+
+.Album-title{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.Album-artist{
+    font-size: 10px;
+}
+
+.Album-button{
+    font-size: 10px;
+    font-weight: 500;
+    padding: 7px 5px;
+    border-radius: 20px;
+    margin: 20px auto;
+    cursor: pointer;
+    max-width: 50%;
+    background-color: #1ed760;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.24);
+}
+
+.Album-button:active{
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+}
+
+.Album-button:hover{
+    background-color: #1db954;
+}

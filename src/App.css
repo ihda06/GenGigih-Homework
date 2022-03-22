@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.Album-container{
+  margin: 30px auto;
+  display: flex;
+}
+
+@media only screen and (max-width: 900px) {
+  .Album-container{
+    flex-wrap: wrap;
+  }
+  
+}
+h1{
+  color: white;
+}
+
+body{
+  background-color: rgb(43, 43, 43);
+}
