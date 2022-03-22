@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const spotify_secret_key = process.env.REACT_APP_SPOTIFY_KEY;
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
