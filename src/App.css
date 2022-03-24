@@ -39,7 +39,9 @@
 
 .Album-container{
   margin: 30px auto;
+  align-items: center;
   display: flex;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 900px) {

@@ -1,30 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
 import Albumcard from './component/albumcard/Albumcard.js';
+import data from './single-sample';
 
 function App() {
+  
+
   return (
     <div className="App">
       <h1>Welcome to Spotipi</h1>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      
       <div className='Album-container'>
-      {Albumcard}
-      {Albumcard}
-      {Albumcard}
-      {Albumcard}
+      <Albumcard 
+        albumName={data.album.name}
+        songName={data.name}
+        url={data.album.images[0].url}
+        artistName={data.artists[0].name}
+      />
+      <Albumcard 
+        albumName={data.album.name}
+        songName={data.name}
+        url={data.album.images[0].url}
+        artistName={data.artists[0].name}
+      />
+      <Albumcard 
+        albumName={data.album.name}
+        songName={data.name}
+        url={data.album.images[0].url}
+        artistName={data.artists[0].name}
+      />
+      <Albumcard 
+        albumName={data.album.name}
+        songName={data.name}
+        url={data.album.images[0].url}
+        artistName={data.artists[0].name}
+      />
       </div>
     </div>
   );

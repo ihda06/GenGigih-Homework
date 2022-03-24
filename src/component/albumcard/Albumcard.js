@@ -1,17 +1,16 @@
-import album from './album.jpg';
 import './Albumcard.css';
-import data from '../../single-sample';
 
-function Albumcard () {
+
+const Albumcard = ({url, albumName, songName, artistName}) => {
     return (
         <div className='Album-wrapper'>
             <div className='Album-image'>
-                <img src={data.album.images[0].url} alt=''></img>
+                <img src={url} alt=''></img>
             </div>
             <div className='Album-description'>
-                <p className='Album-name'>{data.album.name}</p>
-                <p className='Album-title'>{data.name}</p>
-                <p className='Album-artist'>{data.artists[0].name}</p>
+                <p className='Album-name'>{albumName}</p>
+                <p className='Album-title'>{songName}</p>
+                <p className='Album-artist'>{artistName}</p>
             </div>
             <div className='Album-button'>
                 Select
@@ -20,4 +19,4 @@ function Albumcard () {
     );
 }
 
-export default Albumcard();
+export default Albumcard;
