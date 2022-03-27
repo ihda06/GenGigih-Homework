@@ -39,6 +39,7 @@
 
 .Album-container{
   margin: 30px auto;
+  flex-wrap: wrap;
   align-items: center;
   display: flex;
   justify-content: center;
