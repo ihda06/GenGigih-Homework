@@ -1,94 +1,105 @@
-import { Component } from "react";
+import { Component, useEffect, useState } from "react";
 import Albumcard from "../albumcard/Albumcard";
 import Login from "../loginComponent/index";
+import Recent from "../recentSearch/recent";
 const axios = require('axios').default;
 
-// axios.<method> will now provide autocomplete and parameter typings
 
 
-class Search extends Component{
-    state ={
-        login: false,
-        keyword:"",
-        tracks: [],
-        token: ""
+const Search = () => {
+    const [login, setLogin] = useState(false);
+    const [keyword, setKeyword] = useState("");
+    const [tracks, setTracks] = useState([]);
+    const [token, setToken] = useState([]);
+    const [recent, setRecent] = useState([]);
+
+
+    const handleInput = (e) => {
+        setKeyword(e.target.value);
     }
 
-    handleInput = (e)=>{
-        this.setState({keyword: e.target.value})
-    }
-
-    handleSubmit = async()=>{
-        try{
+    const handleSubmit = async () => {
+        try {
             const response = await axios.get("https://api.spotify.com/v1/search", {
                 params: {
                     type: 'track',
-                    q: this.state.keyword,
+                    q: keyword,
                     limit: 5
                 },
                 headers: {
-                    Authorization: `Bearer ${this.state.token}`
+                    Authorization: `Bearer ${token}`
                 }
 
             })
-            this.setState({
-                tracks: response.data.tracks.items
-            })
+            setRecent(tracks);
+            setTracks(response.data.tracks.items);
         }
-        catch(e){
+        catch (e) {
             alert("Kamu belum login")
             console.error(e)
         }
 
     }
 
-    componentDidMount(){
+    useEffect(() => {
         const url = localStorage.getItem("access_token");
-        if( url !== null){
-            this.setState({
-                token: localStorage.getItem("access_token"),
-                login: true
-            })
+        if (url !== null) {
+            setToken(localStorage.getItem("access_token"));
+            setLogin(true);
         }
-        else{
-            this.setState({
-                login: false
-            })
+        else {
+            setLogin(false)
         }
-    }
+    }, [])
+    return (
+        <>
+            {(login)?
+            <></>
+            :
+            <h5>Klik login untuk melakukan pencarian</h5>
+            }
+            <Login />
+            <br />
+            {(login) ? (
+                <>
+                    <input type="text" onChange={handleInput} />
+                    <button onClick={handleSubmit}>Cari</button>
+                    <h1>Hasil pencarian : {keyword}</h1>
+                    <br />
+                    <div className="Album-container">
 
-    render(){
-        return(
-            <>
-            
-            <Login/>
-            <br/>
-            <input type="text"  onChange={this.handleInput}/>
-            <button onClick={this.handleSubmit}>Cari</button>
-            <h1>Hasil pencarian : {this.state.keyword}</h1>
-            <br/>
-            <div className="Album-container">
-
-            {
-                (this.state.login)?
-                this.state.tracks.map((item) => (
-                    <Albumcard
-                    key={item.id}
-                    albumName={item.album.name}
-                    songName={item.name}
-                    url={item.album.images[0].url}
-                    artistName={item.artists[0].name}
-                    />
-                    
-                    ))
+                        {
+                            tracks.map((item) => (
+                                <Albumcard
+                                    key={item.id}
+                                    albumName={item.album.name}
+                                    songName={item.name}
+                                    url={item.album.images[0].url}
+                                    artistName={item.artists[0].name}
+                                />
+                            ))
+                        }
+                    </div>
+                    <h1>Riwayat Pencarian Sebelumnya</h1>
+                    <div className="Album-container">
+                        {recent.map((item) => (
+                            <Recent
+                                key={item.id}
+                                img={item.album.images[2].url}
+                                title={item.name}
+                                artist={item.artists[0].name}
+                            />
+                            )
+                        )
+                        }
+                    </div>
+                </>
+            )
                 :
-                <h1>Belum login</h1>
-                    
-           }
-            </div>
-            </>
-        )
-    }
+            <></>
+            }
+        </>
+    )
 }
 
 export default Search;

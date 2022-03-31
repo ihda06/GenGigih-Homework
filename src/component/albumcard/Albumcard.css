@@ -48,6 +48,7 @@ p{
 }
 
 .Album-button{
+    color: white;
     box-sizing: border-box;
     font-size: 10px;
     font-weight: 500;
