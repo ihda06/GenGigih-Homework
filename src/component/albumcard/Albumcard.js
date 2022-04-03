@@ -1,18 +1,21 @@
 import './Albumcard.css';
 import { useState, useEffect } from 'react';
 
-const Albumcard = ({url, albumName, songName, artistName}) => {
+const Albumcard = ({data, handleSelectedtrack, handleUnselectedTrack}) => {
+    const albumName = data.album.name;
+    const songName = data.name;
+    const url = data.album.images[0].url;
+    const artistName = data.artists[0].name;
     const [selected, setSelected] = useState(false);
-    const [urlSelected, setUrl] = useState("");
     
     const handleSelect = () =>{
         if(!selected){
             setSelected(true);
-            setUrl(url);
+            handleSelectedtrack(data);
         }
         else{
             setSelected(false);
-            setUrl("");
+            handleUnselectedTrack(data);
         }
     }
 

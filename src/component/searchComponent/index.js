@@ -6,11 +6,9 @@ const axios = require('axios').default;
 
 
 
-const Search = () => {
-    const [login, setLogin] = useState(false);
+const Search = ({token}) => {
     const [keyword, setKeyword] = useState("");
     const [tracks, setTracks] = useState([]);
-    const [token, setToken] = useState([]);
     const [recent, setRecent] = useState([]);
 
 
@@ -40,64 +38,44 @@ const Search = () => {
         }
 
     }
-
-    useEffect(() => {
-        const url = localStorage.getItem("access_token");
-        if (url !== null) {
-            setToken(localStorage.getItem("access_token"));
-            setLogin(true);
-        }
-        else {
-            setLogin(false)
-        }
-    }, [])
     return (
         <>
-            {(login)?
-            <></>
-            :
-            <h5>Klik login untuk melakukan pencarian</h5>
-            }
-            <Login />
+            <h4>Cant find your track?</h4>
+            <h2>Search</h2>
             <br />
-            {(login) ? (
-                <>
-                    <input type="text" onChange={handleInput} />
-                    <button onClick={handleSubmit}>Cari</button>
-                    <h1>Hasil pencarian : {keyword}</h1>
-                    <br />
-                    <div className="Album-container">
+            <>
+                <input type="text" onChange={handleInput} />
+                <button onClick={handleSubmit}>Cari</button>
+                <h1>Result : {keyword}</h1>
+                <br />
+                <div className="Album-container">
 
-                        {
-                            tracks.map((item) => (
-                                <Albumcard
-                                    key={item.id}
-                                    albumName={item.album.name}
-                                    songName={item.name}
-                                    url={item.album.images[0].url}
-                                    artistName={item.artists[0].name}
-                                />
-                            ))
-                        }
-                    </div>
-                    <h1>Riwayat Pencarian Sebelumnya</h1>
-                    <div className="Album-container">
-                        {recent.map((item) => (
-                            <Recent
+                    {
+                        tracks.map((item) => (
+                            <Albumcard
                                 key={item.id}
-                                img={item.album.images[2].url}
-                                title={item.name}
-                                artist={item.artists[0].name}
+                                albumName={item.album.name}
+                                songName={item.name}
+                                url={item.album.images[0].url}
+                                artistName={item.artists[0].name}
                             />
-                            )
-                        )
-                        }
-                    </div>
-                </>
-            )
-                :
-            <></>
-            }
+                        ))
+                    }
+                </div>
+                <h1>Recent Search</h1>
+                <div className="Album-container">
+                    {recent.map((item) => (
+                        <Recent
+                            key={item.id}
+                            img={item.album.images[2].url}
+                            title={item.name}
+                            artist={item.artists[0].name}
+                        />
+                    )
+                    )
+                    }
+                </div>
+            </>
         </>
     )
 }
