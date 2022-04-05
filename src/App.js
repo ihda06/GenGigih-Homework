@@ -6,13 +6,17 @@ import Login from './component/loginComponent/index'
 import Search from './component/searchComponent/index'
 import { useState, useEffect } from 'react';
 import CreatePlaylist from './component/createplaylist';
+import { useSelector, useDispatch } from "react-redux";
+import { add } from './tokenSlice';
 
 const axios = require('axios').default;
 
 
 function App() {
+  const token = useSelector((state)=> state.token.value);
+  const dispatch = useDispatch()
   const [login, setLogin] = useState(false);
-  const [token, setToken] = useState("");
+  // const [token, setToken] = useState("");
   const [playlist, setPlaylist] = useState({
     title: "",
     description: "",
@@ -115,15 +119,21 @@ function App() {
     setPlaylist({ ...playlist, tracks: newdata });
   }
   // console.log(playlist.tracks);
-
+  console.log("token :" + token);
+  // console.log("status login :" + login);
+  
+  // console.log("status login :" + login);
   useEffect(() => {
-    const url = localStorage.getItem("access_token");
-    if (url !== null) {
-      setToken(localStorage.getItem("access_token"));
-      setLogin(true);
-    }
-    else {
-      setLogin(false)
+    let url = window.location.hash;
+    if(url.length > 0 ){
+      url = url.substring(1).split("&")[0].split("=")[1];
+      dispatch(add(url));
+      if(token === ""){
+        setLogin(false);
+      }
+      else{
+        setLogin(true);
+      }
     }
   }, [])
 
@@ -133,9 +143,12 @@ function App() {
     <div className="App">
       <h1>Welcome to Spotify</h1>
       {(!login) ?
-        <Login />
+        <Login login={login} />
         :
         <>
+          <Login 
+          login={login}
+          />
           <CreatePlaylist
             handleText={handleText}
             newPlaylist={playlist}

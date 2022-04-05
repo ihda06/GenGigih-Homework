@@ -26,8 +26,9 @@ input{
     text-align: center;
     padding: 10px;
     margin: 0 50px;
-    background-color: black;
+    background-color:  rgb(17, 17, 17);
     border-radius: 20px;
+    box-shadow: 5px 5px 5px  rgba(0, 0, 0, 0.363);
 }
 
 button{
