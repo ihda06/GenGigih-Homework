@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../../tokenSlice";
 import './style.css'
 
-const Login = ({login})=>{
+const Login = ()=>{
+    const token = useSelector((state) => state.token.value);
+    let isLogin = false;
+    if(token !== ""){
+        isLogin = true;
+    }
     const CLIENT_ID = process.env.REACT_APP_SPOTIFY_KEY;
     const REDIRECT_URI = "http://localhost:3000/";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
@@ -23,7 +28,7 @@ const Login = ({login})=>{
     return(
         <>
         {
-            (!login)?
+            (!isLogin)?
             <div className="Login-button" onClick={handleLogin} >Login to Spotify</div>
             :
             <div className="Logout-button" onClick={handleLogout} >Logout</div>

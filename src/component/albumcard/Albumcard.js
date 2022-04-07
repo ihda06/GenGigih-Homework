@@ -1,5 +1,5 @@
 import './Albumcard.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Albumcard = ({data, handleSelectedtrack, handleUnselectedTrack}) => {
     const albumName = data.album.name;

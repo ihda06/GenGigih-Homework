@@ -11,6 +11,7 @@
     max-width: 50%;
     background-color: #1ed760;
     box-shadow: 2px 2px 0 rgb(255, 255, 255);
+    text-align: center;
 }
 
 .Login-button:active{
@@ -23,6 +24,7 @@
     background-color: #1db954;
 }
 .Logout-button{
+    text-align: center;
     color: white;
     box-sizing: border-box;
     font-size: 20px;
