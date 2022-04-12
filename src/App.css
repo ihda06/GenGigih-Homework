@@ -1,3 +1,10 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
 .App {
   text-align: center;
 }
@@ -37,24 +44,20 @@
   }
 }
 
-.Album-container{
-  margin: 10px auto;
-  flex-wrap: wrap;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+h1{
+  font-size: 25px;
+  margin: 27px 0;
 }
 
-@media only screen and (max-width: 900px) {
-  .Album-container{
-    flex-wrap: wrap;
-  }
-  
+h2{
+  font-size: 17px;
 }
+
+
 h1,h2,h3,h4,h5,h6{
   color: white;
 }
 
 body{
-  background-color: rgb(43, 43, 43);
+  background-color: #212121;
 }

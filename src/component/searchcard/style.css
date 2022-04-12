@@ -1,0 +1,72 @@
+/* GRID STYLING */
+
+.search-wrapper {  
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: max-content;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "images content";
+    margin-bottom: 20px;
+    padding: 20px 30px;
+    background-color: #111111;
+    border-radius: 20px;
+  }
+  
+.sCard-Images{
+    grid-area: images;
+}
+
+.sCard-Images img{
+    width: 100%;
+    max-width: 100%;
+}
+.sCard-Content{
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.song{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.artist{
+    font-size: 13px;
+    font-weight: 100;
+}
+
+.sCard-button{
+    text-align: center;
+    color: white;
+    box-sizing: border-box;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 7px 5px;
+    border-radius: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    max-width: 20%;
+    background-color: #1ed760;
+    box-shadow: 2px 2px 0 rgb(255, 255, 255);
+}
+
+.sCard-button:active{
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+}
+
+.sCard-button:hover{
+    background-color: #1db954;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}

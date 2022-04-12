@@ -23,28 +23,32 @@
 .Login-button:hover{
     background-color: #1db954;
 }
+.Logout-button p{
+    font-size: 15px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.721);
+}
 .Logout-button{
-    text-align: center;
-    color: white;
-    box-sizing: border-box;
-    font-size: 20px;
+    /* text-align: center; */
+    
+    /* 
     font-weight: 500;
     padding: 7px 5px;
     border-radius: 20px;
-    margin: 20px auto;
+    margin: 20px auto; */
     cursor: pointer;
-    width: 200px;
-    max-width: 50%;
-    background-color: #000000;
-    box-shadow: 2px 2px 1px 0px rgb(255, 255, 255);
+    /* width: 200px;
+    max-width: 50%; */
+    /* background-color: #000000;
+    box-shadow: 2px 2px 1px 0px rgb(255, 255, 255); */
 }
 
-.Logout-button:active{
+/* .Logout-button:active{
     position: relative;
     top: 2px;
     box-shadow: none;
-}
+} */
 
-.Logout-button:hover{
-    background-color: #464646;
+.Logout-button :hover{
+    color: #ffffff;
 }

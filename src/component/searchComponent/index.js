@@ -1,12 +1,13 @@
-import { Component, useEffect, useState } from "react";
-import Albumcard from "../albumcard/Albumcard";
-import Login from "../loginComponent/index";
+import { useState } from "react";
+// import Albumcard from "../albumcard/Albumcard";
+// import Login from "../loginComponent/index";
 import Recent from "../recentSearch/recent";
+import Searchcard from "../searchcard/Searchcard";
 const axios = require('axios').default;
 
 
 
-const Search = ({token}) => {
+const Search = ({token, handleSelectedtrack, handleUnselectedTrack}) => {
     const [keyword, setKeyword] = useState("");
     const [tracks, setTracks] = useState([]);
     const [recent, setRecent] = useState([]);
@@ -39,25 +40,22 @@ const Search = ({token}) => {
 
     }
     return (
-        <>
-            <h4>Cant find your track?</h4>
-            <h2>Search</h2>
-            <br />
-            <>
+        <div className="wrapper">
+            <h1>Cant find your track?</h1>
+            {/* <h2>Search</h2> */}
+            <div>
                 <input type="text" onChange={handleInput} />
-                <button onClick={handleSubmit}>Cari</button>
+                <button onClick={handleSubmit}>Search</button>
                 <h1>Result : {keyword}</h1>
-                <br />
                 <div className="Album-container">
-
+                {/* THE SEARCH CARD COMPONENT IS GRID STYLING */}
                     {
                         tracks.map((item) => (
-                            <Albumcard
+                            <Searchcard
                                 key={item.id}
-                                albumName={item.album.name}
-                                songName={item.name}
-                                url={item.album.images[0].url}
-                                artistName={item.artists[0].name}
+                                data={item}
+                                handleSelectedtrack={handleSelectedtrack}
+                                handleUnselectedTrack={handleUnselectedTrack}
                             />
                         ))
                     }
@@ -75,8 +73,8 @@ const Search = ({token}) => {
                     )
                     }
                 </div>
-            </>
-        </>
+            </div>
+        </div>
     )
 }
 

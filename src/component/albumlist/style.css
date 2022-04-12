@@ -1,0 +1,20 @@
+/* FLEXBOX STYLING */
+
+.Album-container{
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
+    justify-content:space-between;
+  }
+
+@media only screen and (max-width: 900px) {
+    .Album-container{
+      flex-wrap: wrap;
+    }
+    
+  }
+
+.wrapper{
+    margin: 0 50px;
+    padding: 10px 40px;
+}

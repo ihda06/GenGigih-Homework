@@ -1,10 +1,13 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import Albumcard from "../../component/albumcard/Albumcard"
+// import Albumcard from "../../component/albumcard/Albumcard"
 import CreatePlaylist from "../../component/createplaylist"
 import Login from "../../component/loginComponent"
+import './style.css'
 import Search from "../../component/searchComponent"
 import data from "../../single-sample"
+import Albumlist from "../../component/albumlist/Albumlist"
+// import logo from "./../../../public/white-spotify.png"
 
 const axios = require('axios').default;
 
@@ -109,31 +112,35 @@ const CreatePlaylistPages = () => {
     }
     return (
         <div className="App">
-            <Login/>
-            <CreatePlaylist
-                handleText={handleText}
-                newPlaylist={playlist}
-                handleSubmit={handleSubmit}
-                handleValidation={handleValidation}
-
-            />
-            <h2>Select track to add to your playlist</h2>
-            <div className='Album-container'>
-                {
-                    data.map((item) => (
-                        <Albumcard
-                            key={item.id}
-                            data={item}
-                            handleSelectedtrack={handleSelectedtrack}
-                            handleUnselectedTrack={handleUnselectedTrack}
-                        />
-                    ))
-                }
+            <div className="sidebar">
+                <img src={"white-spotify.png"} alt="" />
+                <div className="sidebar-content">
+                    <Login />
+                    <p>Your Playlist</p>
+                </div>
             </div>
-            <br />
-            <Search
-                token={token}
-            />
+            <div className="content">
+
+                <CreatePlaylist
+                    handleText={handleText}
+                    newPlaylist={playlist}
+                    handleSubmit={handleSubmit}
+                    handleValidation={handleValidation}
+
+                />
+                <Albumlist
+                list={data}
+                handleSelectedtrack={handleSelectedtrack}
+                handleUnselectedTrack={handleUnselectedTrack}
+                />
+
+                
+                <Search
+                    token={token}
+                    handleSelectedtrack={handleSelectedtrack}
+                    handleUnselectedTrack={handleUnselectedTrack}
+                /> 
+            </div>
         </div>
     )
 }

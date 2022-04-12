@@ -6,26 +6,29 @@ textarea{
 
 input{
     /* height: 10px; */
-    text-align: center;
+    box-sizing: border-box;
+    padding-left: 10px;
+    text-align: start;
+    width: 100%;
+    max-width: 100%;
     border-radius: 10px;
 }
 
 .correct-val{
     padding-top: 10px;
-    font-size: 10px;
+    font-size: 15px;
     color: rgb(69, 236, 69);
 }
 
 .incorrect-val{
     padding-top: 10px;
-    font-size: 10px;
+    font-size: 15px;
     color: red;
 }
 
 .form-wrapper{
-    text-align: center;
-    padding: 10px;
-    margin: 0 50px;
+    text-align: start;
+    padding: 10px 40px;
     background-color:  rgb(17, 17, 17);
     border-radius: 20px;
     box-shadow: 5px 5px 5px  rgba(0, 0, 0, 0.363);
@@ -33,5 +36,19 @@ input{
 
 button{
     margin: 20px auto;
-    display:block;
+    display:inline;
+}
+
+
+
+.wrapper{
+    margin: 0 50px;
+    text-align: start;
+}
+
+textarea{
+    box-sizing: border-box;
+    padding-left: 10px;
+    width: 100%;
+    max-width: 100%;
 }
