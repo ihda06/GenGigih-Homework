@@ -7,9 +7,10 @@ import './style.css'
 import Search from "../../component/searchComponent"
 import data from "../../single-sample"
 import Albumlist from "../../component/albumlist/Albumlist"
+import Swal from 'sweetalert2'
 // import logo from "./../../../public/white-spotify.png"
 
-const axios = require('axios').default;
+import axios from 'axios';
 
 
 const CreatePlaylistPages = () => {
@@ -94,10 +95,15 @@ const CreatePlaylistPages = () => {
             };
             const response = await axios.post(`https://api.spotify.com/v1/users/${userid}/playlists`, bodyParameters, config)
             console.log(response)
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Success create playlist',
+                timer: 1500
+            })
             return response.data;
         }
         catch (e) {
-
             console.error(e)
         }
     }
@@ -129,17 +135,17 @@ const CreatePlaylistPages = () => {
 
                 />
                 <Albumlist
-                list={data}
-                handleSelectedtrack={handleSelectedtrack}
-                handleUnselectedTrack={handleUnselectedTrack}
+                    list={data}
+                    handleSelectedtrack={handleSelectedtrack}
+                    handleUnselectedTrack={handleUnselectedTrack}
                 />
 
-                
+
                 <Search
                     token={token}
                     handleSelectedtrack={handleSelectedtrack}
                     handleUnselectedTrack={handleUnselectedTrack}
-                /> 
+                />
             </div>
         </div>
     )

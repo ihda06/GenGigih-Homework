@@ -26,6 +26,7 @@ function App() {
     let url = window.location.hash;
     if(url.length > 0 ){
       url = url.substring(1).split("&")[0].split("=")[1];
+      localStorage.setItem("accessToken", url);
       dispatch(add(url));
     }
   }, [dispatch])

@@ -1,5 +1,5 @@
 import './Albumcard.css';
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -8,39 +8,55 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material';
 
+type data = {
+    album: {
+        name: string,
+        images: { url: string }[]
+    },
+    name: string,
+    artists: { name: string }[],
+    uri:string,
+}
+
+type trackProps = {
+    data: data;
+    handleSelectedtrack: (data: data) => void;
+    handleUnselectedTrack: (data: data) => void;
+}
+
 const theme = createTheme({
-    typography:{
-        subtitle1:{
+    typography: {
+        subtitle1: {
             fontSize: 10
         },
-        h5:{
-            fontSize:15
+        h5: {
+            fontSize: 15
         }
     },
-    palette:{
+    palette: {
         primary: {
-            main:'#1db954',
+            main: '#1db954',
             contrastText: "#fff"
         }
     }
 });
 
 
-const Albumcard = ({ data, handleSelectedtrack, handleUnselectedTrack }) => {
-    const albumName = data.album.name;
-    const songName = data.name;
-    const url = data.album.images[0].url;
-    const artistName = data.artists[0].name;
+const Albumcard: FC<trackProps> = (props: trackProps) => {
+    const albumName = props.data.album.name;
+    const songName = props.data.name;
+    const url = props.data.album.images[0].url;
+    const artistName = props.data.artists[0].name;
     const [selected, setSelected] = useState(false);
 
     const handleSelect = () => {
         if (!selected) {
             setSelected(true);
-            handleSelectedtrack(data);
+            props.handleSelectedtrack(props.data);
         }
         else {
             setSelected(false);
-            handleUnselectedTrack(data);
+            props.handleUnselectedTrack(props.data);
         }
     }
 
@@ -49,7 +65,7 @@ const Albumcard = ({ data, handleSelectedtrack, handleUnselectedTrack }) => {
         // CHANGED TO MATERIAL UI COMPONENT CARD
         <ThemeProvider theme={theme}>
 
-            <Card noWrap sx={{ width: 100 / 100, maxHeight: 700 }} style={{backgroundColor: '#111111', textAlign: 'start', color:"white"}}>
+            <Card sx={{ width: 100 / 100, maxHeight: 700 }} style={{ backgroundColor: '#111111', textAlign: 'start', color: "white" }}>
                 <CardMedia
                     component="img"
                     height="300"
@@ -68,7 +84,7 @@ const Albumcard = ({ data, handleSelectedtrack, handleUnselectedTrack }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={handleSelect} variant="contained" color='primary' style={{borderRadius:20}}>
+                    <Button size="small" onClick={handleSelect} variant="contained" color='primary' style={{ borderRadius: 20 }}>
                         {
                             (!selected) ? `Select` : `Deselect`
                         }
@@ -77,21 +93,6 @@ const Albumcard = ({ data, handleSelectedtrack, handleUnselectedTrack }) => {
                 </CardActions>
             </Card>
         </ThemeProvider>
-        // <div className='Album-wrapper'>
-        //     <div className='Album-image'>
-        //         <img src={url} alt=''></img>
-        //     </div>
-        //     <div className='Album-description'>
-        //         <p className='Album-name'>{albumName}</p>
-        //         <p className='Album-title'>{songName}</p>
-        //         <p className='Album-artist'>{artistName}</p>
-        //     </div>
-        //     <div className='Album-button' onClick={handleSelect}>
-        //         {
-        //             (!selected)? `Select` : `Deselect`
-        //         }
-        //     </div>
-        // </div>
     );
 }
 
