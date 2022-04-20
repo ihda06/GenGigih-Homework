@@ -1,5 +1,5 @@
 
-import './style.css'
+import './CreatePlaylist.css'
 
 const CreatePlaylist = ({handleSubmit, newPlaylist, handleText, handleValidation}) => {
     
