@@ -7,21 +7,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material';
+import { Track } from '../TrackList/TrackList'
 
-type data = {
-    album: {
-        name: string,
-        images: { url: string }[]
-    },
-    name: string,
-    artists: { name: string }[],
-    uri:string,
-}
+// type Track = {
+//     id: string,
+//     album: {
+//         name: string,
+//         images: { url: string }[]
+//     },
+//     name: string,
+//     artists: { name: string }[],
+//     uri:string,
+// }
 
 type trackProps = {
-    data: data;
-    handleSelectedtrack: (data: data) => void;
-    handleUnselectedTrack: (data: data) => void;
+    data: Track;
+    handleSelectedtrack: (data: Track) => void;
+    handleUnselectedTrack: (data: Track) => void;
 }
 
 const theme = createTheme({

@@ -5,11 +5,12 @@ import { useState, FC, ChangeEvent } from "react";
 import Recent from "../RecentSearch/RecentSearch";
 import Searchcard from "../SearchCard/SearchCard";
 import axios from "axios";
+import { Track } from "../TrackList/TrackList";
 
 type searchProps = {
     token: string;
-    handleSelectedtrack: ()=>void;
-    handleUnselectedtrack: ()=>void;
+    handleSelectedtrack: (data: Track)=>void;
+    handleUnselectedtrack: (data: Track)=>void;
 }
 
 type itemKey = {
@@ -65,13 +66,13 @@ const Search: FC<searchProps> = (Props: searchProps) => {
                 <div className="Album-container">
                 {/* THE SEARCH CARD COMPONENT IS GRID STYLING */}
                     {
-                        tracks.map((item: itemKey) => 
+                        tracks.map((item: Track) => 
                         (
                             <Searchcard
                                 key={item.id}
                                 data={item}
-                                handleSelectedtrack={Props.handleSelectedtrack}
-                                handleUnselectedTrack={Props.handleSelectedtrack}
+                                handleSelectedTrack={(data: Track)=>Props.handleSelectedtrack(data)}
+                                handleUnselectedTrack={(data: Track)=>Props.handleUnselectedtrack(data)}
                             />
                         )
                         )

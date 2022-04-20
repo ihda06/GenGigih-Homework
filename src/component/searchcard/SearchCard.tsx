@@ -1,19 +1,28 @@
-import { useState } from "react";
+import { useState, FC } from "react";
+import { Track } from "../TrackList/TrackList";
 import './SearchCard.css'
 
-const Searchcard = ({data, handleSelectedtrack, handleUnselectedTrack})=>{
-    const songName = data.name;
-    const url = data.album.images[0].url;
-    const artistName = data.artists[0].name;
+
+
+type SearchCardProps = {
+    data: Track;
+    handleSelectedTrack: (data: Track)=>void;
+    handleUnselectedTrack: (data: Track)=>void;
+}
+
+const Searchcard: FC<SearchCardProps> = (props: SearchCardProps)=>{
+    const songName = props.data.name;
+    const url = props.data.album.images[0].url;
+    const artistName = props.data.artists[0].name;
     const [selected, setSelected] = useState(false);
     const handleSelect = () =>{
         if(!selected){
             setSelected(true);
-            handleSelectedtrack(data);
+            props.handleSelectedTrack(props.data);
         }
         else{
             setSelected(false);
-            handleUnselectedTrack(data);
+            props.handleUnselectedTrack(props.data);
         }
     }
 
