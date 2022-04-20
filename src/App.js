@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { add } from './tokenSlice';
 import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
-import Home from './pages/Home/Home';
-import CreatePlaylistPages from './pages/CreatePlaylistPages/CreatePlaylistPages';
+import LandingPage from './pages/LandingPage/LandingPage';
+import CreatePlaylistPages from './pages/CreatePlaylistPage/CreatePlaylistPage';
 
 
 
@@ -37,7 +37,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          { (!isLogin)? <Home/> : <Redirect to="/create-playlist"/>}
+          { (!isLogin)? <LandingPage/> : <Redirect to="/create-playlist"/>}
         </Route>
         <Route path="/create-playlist">
           { (!isLogin)?  

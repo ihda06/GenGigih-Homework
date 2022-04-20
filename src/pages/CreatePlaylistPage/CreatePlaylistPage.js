@@ -1,14 +1,13 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
-// import Albumcard from "../../component/albumcard/Albumcard"
-import CreatePlaylist from "../../component/createplaylist"
-import Login from "../../component/loginComponent"
-import './style.css'
-import Search from "../../component/searchComponent"
+import CreatePlaylist from "../../component/CreatePlaylist/CreatePlaylist"
+import Login from "../../component/Login/Login"
+import './CreatePlaylistPage.css'
+import Search from "../../component/Search/Search"
 import data from "../../single-sample"
-import Albumlist from "../../component/albumlist/Albumlist"
+import TrackList from "../../component/TrackList/TrackList"
 import Swal from 'sweetalert2'
-// import logo from "./../../../public/white-spotify.png"
+
 
 import axios from 'axios';
 
@@ -134,7 +133,7 @@ const CreatePlaylistPages = () => {
                     handleValidation={handleValidation}
 
                 />
-                <Albumlist
+                <TrackList
                     list={data}
                     handleSelectedtrack={handleSelectedtrack}
                     handleUnselectedTrack={handleUnselectedTrack}

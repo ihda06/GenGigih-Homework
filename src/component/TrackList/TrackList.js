@@ -1,15 +1,15 @@
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
-import Albumcard from '../albumcard/Albumcard';
-import './style.css'
+import TrackCard from '../TrackCard/TrackCard';
+import './TrackList.css'
 
-const Albumlist = ({ list, handleSelectedtrack, handleUnselectedTrack }) => {
+const TrackList = ({ list, handleSelectedtrack, handleUnselectedTrack }) => {
     return (
         <Box mx={12} >
             <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                 {list.map((obj) => (
                     <Grid item xs={4} sm={4} md={4} key={obj.id} aria-label="card">
-                        <Albumcard
+                        <TrackCard
                             
                             data={obj}
                             handleSelectedtrack={handleSelectedtrack}
@@ -23,4 +23,4 @@ const Albumlist = ({ list, handleSelectedtrack, handleUnselectedTrack }) => {
     )
 }
 
-export default Albumlist;
+export default TrackList;

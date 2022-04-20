@@ -1,9 +1,9 @@
 // import { useSelector } from "react-redux"
-import "./Home.css"
-import Login from "../../component/loginComponent"
+import "./LandingPage.css"
+import Login from "../../component/Login/Login"
 
 
-const Home = () => {
+const LandingPage = () => {
     // const login = useSelector((state) => state.isLogin.value);
 
     return (
@@ -16,4 +16,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default LandingPage;

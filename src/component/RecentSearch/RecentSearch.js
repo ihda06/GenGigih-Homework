@@ -1,6 +1,6 @@
-import './style.css'
+import './RecentSearch.css'
 
-const Recent = ({img, title, artist})=>{
+const RecentSearch = ({img, title, artist})=>{
 
     return(
         <div className="Recent-container">
@@ -15,4 +15,4 @@ const Recent = ({img, title, artist})=>{
     )
 }
 
-export default Recent;
+export default RecentSearch;

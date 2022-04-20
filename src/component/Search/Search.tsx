@@ -2,8 +2,8 @@
 import { useState, FC, ChangeEvent } from "react";
 // import Albumcard from "../albumcard/Albumcard";
 // import Login from "../loginComponent/index";
-import Recent from "../recentSearch/recent";
-import Searchcard from "../searchcard/Searchcard";
+import Recent from "../RecentSearch/RecentSearch";
+import Searchcard from "../SearchCard/SearchCard";
 import axios from "axios";
 
 type searchProps = {

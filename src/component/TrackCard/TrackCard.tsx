@@ -1,4 +1,4 @@
-import './Albumcard.css';
+import './TrackCard.css';
 import { useState, FC } from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -42,7 +42,7 @@ const theme = createTheme({
 });
 
 
-const Albumcard: FC<trackProps> = (props: trackProps) => {
+const TrackCard: FC<trackProps> = (props: trackProps) => {
     const albumName = props.data.album.name;
     const songName = props.data.name;
     const url = props.data.album.images[0].url;
@@ -96,4 +96,4 @@ const Albumcard: FC<trackProps> = (props: trackProps) => {
     );
 }
 
-export default Albumcard;
+export default TrackCard;

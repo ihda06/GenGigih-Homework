@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { remove } from "../../tokenSlice";
-import './style.css'
+import './Login.css'
 
 const Login = () => {
     const token = useSelector((state) => state.token.value);

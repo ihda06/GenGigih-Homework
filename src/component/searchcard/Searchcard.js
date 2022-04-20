@@ -1,5 +1,5 @@
 import { useState } from "react";
-import './style.css'
+import './SearchCard.css'
 
 const Searchcard = ({data, handleSelectedtrack, handleUnselectedTrack})=>{
     const songName = data.name;

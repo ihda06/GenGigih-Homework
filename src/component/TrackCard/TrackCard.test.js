@@ -9,7 +9,7 @@ import React from 'react'
 import {render, fireEvent, waitFor, screen} from '@testing-library/react'
 
 // the component to test
-import Albumcard from './Albumcard'
+import TrackCard from './TrackCard'
 import data from '../../single-sample'
 
 test('Load album card and click button', () => {
