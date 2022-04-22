@@ -82,6 +82,9 @@ function App() {
       <Route exact path="/">
         {(!isLogin) ? <LandingPage /> : <Redirect to="/createplaylist" />}
       </Route>
+      <Route path='/callback'>
+        {(!isLogin) ? <LandingPage /> : <Redirect to="/createplaylist" />}
+      </Route>
       <Route path="/createplaylist">
         {(!isLogin) ?
           <Redirect to="/" />
