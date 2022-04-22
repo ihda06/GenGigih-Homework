@@ -60,7 +60,7 @@ function App() {
 
   useEffect(()=>{
     const getToken = localStorage.getItem("accessToken");
-    if(getToken.length>0){
+    if(getToken !== null){
       dispatch(add(getToken))
     }
   })
