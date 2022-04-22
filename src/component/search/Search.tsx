@@ -4,8 +4,7 @@ import { useState, FC, ChangeEvent, useEffect } from "react";
 // import Login from "../loginComponent/index";
 import './Search.css'
 import Recent from "../recentSearch/RecentSearch";
-import SearchCard from "../searchCard/SearchCard";
-import axios from "axios";
+
 import { Track } from "../trackList/TrackList";
 
 type searchProps = {
