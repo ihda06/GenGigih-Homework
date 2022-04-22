@@ -50,3 +50,14 @@ Show last track that you has been searched
 
 Creating new playlist for the tracks that you has been selected
 
+
+## Added feature
+
+### `Search Page`
+
+Page for searching track
+
+### `Create Playlist Validation`
+
+Playlist only will be create if user selected at least 1 track
+
