@@ -36,7 +36,7 @@ const ResponsiveAppBar:React.FC<SidebarProps> = (props: SidebarProps) => {
   const userData = useSelector((state: RootStateOrAny) => state.userData.userinfo);
   
   useEffect(()=>{
-    // console.log("tes")
+    console.log("tes")
     const getData = async()=>{
       try {
         let response = await axios.get("https://api.spotify.com/v1/me", {
