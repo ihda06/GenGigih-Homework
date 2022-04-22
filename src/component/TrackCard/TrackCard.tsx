@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { Track } from '../TrackList/TrackList'
+import { Track } from '../trackList/TrackList'
 
 // type Track = {
 //     id: string,

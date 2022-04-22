@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { add } from './redux/tokenSlice';
 import { Switch, Route, Redirect } from "react-router-dom";
-import LandingPage from './pages/LandingPage/LandingPage';
-import CreatePlaylistPages from './pages/CreatePlaylistPage/CreatePlaylistPage';
+import LandingPage from './pages/landingPage/LandingPage';
+import CreatePlaylistPages from './pages/createPlaylistPage/CreatePlaylistPage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import SearchPage from './pages/SearchPage/SearchPage';
+import SearchPage from './pages/searchPage/SearchPage';
 
 import axios from 'axios';
 // import { addUser } from './redux/userSlice';

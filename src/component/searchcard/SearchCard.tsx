@@ -1,5 +1,5 @@
 import { useState, FC } from "react";
-import { Track } from "../TrackList/TrackList";
+import { Track } from "../trackList/TrackList";
 import './SearchCard.css'
 
 

@@ -1,16 +1,12 @@
 import React, { useState } from "react"
 import { RootStateOrAny, useSelector } from "react-redux"
-// import CreatePlaylist from "../../component/CreatePlaylist/CreatePlaylist"
-// import './CreatePlaylistPage.css'
-// import Search from "../../component/Search/Search"
-// import DataSample from "../../single-sample"
-import TrackList, { Track } from "../../component/TrackList/TrackList"
+import TrackList, { Track } from "../../component/trackList/TrackList"
 // import Swal from 'sweetalert2'
 
 
 import axios from 'axios';
-import Sidebar from "../../component/Sidebar/Sidebar"
-import ResponsiveAppBar from "../../component/AppBar/AppBar"
+import Sidebar from "../../component/sidebar/Sidebar"
+import ResponsiveAppBar from "../../component/appBar/AppBar"
 import { Box, Typography } from "@mui/material"
 
 export interface IPlaylist {

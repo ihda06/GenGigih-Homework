@@ -1,6 +1,6 @@
 // import { useSelector } from "react-redux"
 import "./LandingPage.css"
-import Login from "../../component/Login/Login"
+import Login from "../../component/login/Login"
 
 
 const LandingPage = () => {

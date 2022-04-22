@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { IPlaylist } from '../../pages/CreatePlaylistPage/CreatePlaylistPage';
+import { IPlaylist } from '../../pages/createPlaylistPage/CreatePlaylistPage';
 import './CreatePlaylist.css';
 
 // import * as React from 'react';

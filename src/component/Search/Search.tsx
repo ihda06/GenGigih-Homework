@@ -3,10 +3,10 @@ import { useState, FC, ChangeEvent, useEffect } from "react";
 // import Albumcard from "../albumcard/Albumcard";
 // import Login from "../loginComponent/index";
 import './Search.css'
-import Recent from "../RecentSearch/RecentSearch";
-import Searchcard from "../SearchCard/SearchCard";
+import Recent from "../recentSearch/RecentSearch";
+import Searchcard from "../searchCard/SearchCard";
 import axios from "axios";
-import { Track } from "../TrackList/TrackList";
+import { Track } from "../trackList/TrackList";
 
 type searchProps = {
     recent: Track[];

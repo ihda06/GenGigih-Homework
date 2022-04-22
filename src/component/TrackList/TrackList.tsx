@@ -1,7 +1,7 @@
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import { FC, useEffect } from 'react';
-import TrackCard from '../TrackCard/TrackCard';
+import TrackCard from '../trackCard/TrackCard';
 // import './TrackList.css'
 import { useDispatch, useSelector, RootStateOrAny, } from 'react-redux';
 import { useState } from 'react';

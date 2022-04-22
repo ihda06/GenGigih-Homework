@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import Login from '../Login/Login';
+import Login from '../login/Login';
 import './Sidebar.css'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
