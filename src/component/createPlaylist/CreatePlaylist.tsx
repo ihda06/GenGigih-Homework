@@ -2,15 +2,13 @@ import React, { FC } from 'react';
 import { IPlaylist } from '../../pages/createPlaylistPage/CreatePlaylistPage';
 import './CreatePlaylist.css';
 
-// import * as React from 'react';
+
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-// import FormControl, { useFormControl } from '@mui/material/FormControl';
-// import OutlinedInput from '@mui/material/OutlinedInput';
 import Box from '@mui/material/Box';
-// import FormHelperText from '@mui/material/FormHelperText';
+
 import { Button, createTheme, ThemeProvider } from '@mui/material';
-import { light } from '@mui/material/styles/createPalette';
+
 
 const theme = createTheme({
     typography: {

@@ -1,5 +1,5 @@
 // import { type } from "@testing-library/user-event/dist/type";
-import { useState, FC, ChangeEvent, useEffect } from "react";
+import { FC } from "react";
 // import Albumcard from "../albumcard/Albumcard";
 // import Login from "../loginComponent/index";
 import './Search.css'

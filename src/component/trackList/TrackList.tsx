@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 import { FC, useEffect } from 'react';
 import TrackCard from '../trackCard/TrackCard';
 // import './TrackList.css'
-import { useDispatch, useSelector, RootStateOrAny, } from 'react-redux';
+import { useSelector, RootStateOrAny, } from 'react-redux';
 import { useState } from 'react';
 
 export type Track = {
@@ -38,11 +38,11 @@ type TrackListProps = {
 
 const TrackList: FC<TrackListProps> = (props: TrackListProps) => {
     const [datatrack, setDatatrack] = useState<ITrack[]>([])
-    // setDatatrack(props.list)
-    const keyword = useSelector((state: RootStateOrAny) => state.searchResult.keyword);
+    
+    
     const result = useSelector((state: RootStateOrAny) => state.searchResult.value);
-    const token = useSelector((state: RootStateOrAny) => state.token.value);
-    const dispatch = useDispatch();
+    
+    
 
 
     useEffect(() => {

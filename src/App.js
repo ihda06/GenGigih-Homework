@@ -9,8 +9,6 @@ import CreatePlaylistPages from './pages/createPlaylistPage/CreatePlaylistPage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import SearchPage from './pages/searchPage/SearchPage';
 
-import axios from 'axios';
-// import { addUser } from './redux/userSlice';
 
 
 const darkTheme = createTheme({
@@ -28,27 +26,12 @@ const darkTheme = createTheme({
 
 function App() {
   const token = useSelector((state) => state.token.value);
-  const user = useSelector((state) => state.userData.userInfo);
+  
   const dispatch = useDispatch();
   const [isLogin, setIsLogin] = useState(false);
-  const [userData, setUserData] = useState([]);
-
-  const getCurrentUser = async () => {
-    try {
-      const response = await axios.get("https://api.spotify.com/v1/me", {
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-
-      })
-      return response.data
-      
-    }
-    catch (e) {
-      
-      console.error(e)
-    }
-  }
+  
+  
+  
 
   useEffect(() => {
     if (token !== "") {
@@ -80,6 +63,9 @@ function App() {
   return (
     <Switch>
       <Route exact path="/">
+        {(!isLogin) ? <LandingPage /> : <Redirect to="/createplaylist" />}
+      </Route>
+      <Route path='/callback'>
         {(!isLogin) ? <LandingPage /> : <Redirect to="/createplaylist" />}
       </Route>
       <Route path="/createplaylist">

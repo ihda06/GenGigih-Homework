@@ -1,10 +1,8 @@
-import { FC, useEffect } from 'react';
-import Login from '../login/Login';
+import { FC } from 'react';
 import './Sidebar.css'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { Box } from '@mui/material';
 import { useHistory } from 'react-router-dom';

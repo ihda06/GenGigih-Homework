@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector, RootStateOrAny, shallowEqual, } from 'react-redux';
+
+import { useDispatch, useSelector, RootStateOrAny, } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,48 +18,19 @@ import Login from '../login/Login';
 import { add, addKeyword } from '../../redux/searchResultSlice';
 import { InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-// import { addUser } from '../../redux/userSlice';
-import { addUser } from '../../redux/userSlice'
 
-// const pages = ['Products', 'Pricing', 'Blog'];
-// const settings = ['Profile'];
-type SidebarProps = {
-  selectPage: string
-}
 
-const ResponsiveAppBar:React.FC<SidebarProps> = (props: SidebarProps) => {
+
+const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const [input, setInput] = React.useState('')
-  const [data, setData] = React.useState<any>(null)
+  
   const token = useSelector((state: RootStateOrAny) => state.token.value);
-  const userData = useSelector((state: RootStateOrAny) => state.userData.userinfo);
   
-  useEffect(()=>{
-    console.log("tes")
-    const getData = async()=>{
-      try {
-        let response = await axios.get("https://api.spotify.com/v1/me", {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-  
-        })
-        response = await response
-        setData(response.data)
-      }
-      catch (e) {
-        console.error(e)
-      }
-    }
-
-    getData();
-  
-  }, [])
   
 
-  const createplaylist = 'createplaylist';
-  const yourplaylist = 'yourplaylist';
+  
 
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {

@@ -1,10 +1,9 @@
-import React, { useState } from "react"
+import  { useState } from "react"
 import { RootStateOrAny, useSelector } from "react-redux"
 import TrackList, { Track } from "../../component/trackList/TrackList"
 // import Swal from 'sweetalert2'
 
 
-import axios from 'axios';
 import Sidebar from "../../component/sidebar/Sidebar"
 import ResponsiveAppBar from "../../component/appBar/AppBar"
 import { Box, Typography } from "@mui/material"
@@ -41,7 +40,7 @@ const SearchPage = () => {
         <div className="App">
             <Sidebar selectPage="search" />
             <Box sx={{ width: 100 / 100 }}>
-                <ResponsiveAppBar selectPage="search"></ResponsiveAppBar>
+                <ResponsiveAppBar></ResponsiveAppBar>
                 <Box sx={{mt:5}}>
                     <Typography variant="h5" sx={{mb:2, fontWeight: 800}}>Result of {keyword}</Typography>
                     <TrackList

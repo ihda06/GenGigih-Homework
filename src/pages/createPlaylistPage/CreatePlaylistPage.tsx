@@ -42,15 +42,6 @@ const CreatePlaylistPages = () => {
         setPlaylist({ ...playlist, [name]: value })
     }
 
-    const handleValidation = (title: string) => {
-        if (title.length < 10) {
-            return false
-        }
-        else {
-            return true
-        }
-    }
-
     const handleEnter = async (e: React.FormEvent<HTMLFormElement>) => {
         console.log("masuk")
         e.preventDefault()
@@ -167,7 +158,7 @@ const CreatePlaylistPages = () => {
         <div className="App">
             <Sidebar selectPage="createplaylist" />
             <Box sx={{ width: 100 / 100 }}>
-                <ResponsiveAppBar selectPage="createplaylist"></ResponsiveAppBar>
+                <ResponsiveAppBar></ResponsiveAppBar>
                 <CreatePlaylist
                     handleText={(e: React.ChangeEvent<HTMLInputElement>) => handleText(e)}
                     newPlaylist={playlist}

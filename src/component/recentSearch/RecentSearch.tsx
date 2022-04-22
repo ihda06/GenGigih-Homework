@@ -1,6 +1,6 @@
 import './RecentSearch.css'
 import { FC } from 'react';
-import { createTheme, ThemeProvider, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 type RecentSearchProps = {
     img: string;
