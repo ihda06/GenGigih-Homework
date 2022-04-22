@@ -10,6 +10,37 @@
     box-shadow: 5px 5px 5px  rgba(0, 0, 0, 0.363);
 }
 
+@media only screen and (max-width: 900px) {
+    .Recent-container{
+        background-color: rgb(17, 17, 17);
+        margin: 5px 5px;
+        width: 150px;
+        padding: 20px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius:15px;
+        box-shadow: 5px 5px 5px  rgba(0, 0, 0, 0.363);
+    }
+
+    .Content-recent-wrapper{
+        width: 75% !important;
+        margin-left: 0;
+        float: left;
+        display: block;
+    }
+    
+    .artist-name{
+        font-size: 3px;
+        font-weight: normal;
+    }
+
+    .thumbnail-wrapper img{
+        width: 30px;
+    }
+    
+  }
+
 
 .Content-recent-wrapper p{
     text-align: left !important;
@@ -34,4 +65,5 @@
     width: 150px;
     margin-left: 20px;
     float: left;
+    display: block;
 }

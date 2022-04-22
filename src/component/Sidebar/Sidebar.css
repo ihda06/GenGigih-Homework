@@ -22,3 +22,17 @@
     margin-left: 25%;
     text-align: start;
 }
+
+.nav{
+    color: #ffffffb8;
+}
+
+.selected {
+    font-weight: bold !important;
+    /* bacolor: #1DB954; */
+}
+
+.Mui-selected{
+    color: white !important;
+    background-color: transparent !important;
+}

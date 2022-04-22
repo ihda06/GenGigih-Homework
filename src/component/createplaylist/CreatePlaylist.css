@@ -29,7 +29,7 @@ input{
 .form-wrapper{
     text-align: start;
     padding: 10px 40px;
-    background-color:  rgb(17, 17, 17);
+    background-color:  #111111;
     border-radius: 20px;
     box-shadow: 5px 5px 5px  rgba(0, 0, 0, 0.363);
 }
@@ -41,10 +41,6 @@ button{
 
 
 
-.wrapper{
-    margin: 0 50px;
-    text-align: start;
-}
 
 textarea{
     box-sizing: border-box;
