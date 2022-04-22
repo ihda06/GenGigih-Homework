@@ -1,6 +1,7 @@
 
+import { Typography } from "@mui/material";
 import { RootStateOrAny, useDispatch, useSelector } from "react-redux";
-import { remove } from "../../tokenSlice";
+import { remove } from "../../redux/tokenSlice";
 import './Login.css'
 
 const Login = () => {
@@ -21,6 +22,7 @@ const Login = () => {
     }
 
     const handleLogout = () => {
+        localStorage.setItem("accessToken", '')
         dispatch(remove);
         window.location.href = REDIRECT_URI;
     }
@@ -29,13 +31,11 @@ const Login = () => {
         <>
             {
                 (!isLogin) ?
-                    <div className="Login-button" onClick={handleLogin} >Login to Spotify</div>
+                    <Typography variant="button" className="Login-button" onClick={handleLogin} >Login to Spotify</Typography>
                     :
-                    <div className="Logout-button" onClick={handleLogout}>
-                        <p>
-                            Logout
-                        </p>
-                    </div>
+                    <Typography variant="button" className="Logout-button" onClick={handleLogout}>
+                        Logout
+                    </Typography>
             }
         </>
     );

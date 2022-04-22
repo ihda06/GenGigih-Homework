@@ -4,12 +4,13 @@
     flex-wrap: wrap;
     align-items: center;
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
   }
 
 @media only screen and (max-width: 900px) {
     .Album-container{
       flex-wrap: wrap;
+      justify-content: center;
     }
     
   }

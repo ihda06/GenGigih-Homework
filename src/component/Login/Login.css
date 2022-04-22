@@ -23,10 +23,8 @@
 .Login-button:hover{
     background-color: #1db954;
 }
-.Logout-button p{
-    font-size: 15px;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.721);
+.Logout-button{
+    color: #ffffffb8;
 }
 .Logout-button{
     /* text-align: center; */

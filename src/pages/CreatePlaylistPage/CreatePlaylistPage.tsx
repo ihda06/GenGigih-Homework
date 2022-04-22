@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { RootStateOrAny, useSelector } from "react-redux"
+import { RootStateOrAny, useDispatch, useSelector, } from "react-redux"
+
 import CreatePlaylist from "../../component/CreatePlaylist/CreatePlaylist"
 import './CreatePlaylistPage.css'
 import Search from "../../component/Search/Search"
@@ -10,8 +11,12 @@ import Swal from 'sweetalert2'
 
 import axios from 'axios';
 import Sidebar from "../../component/Sidebar/Sidebar"
+import ResponsiveAppBar from "../../component/AppBar/AppBar"
+import { Box, TextField, Typography } from "@mui/material"
+import { add } from "../../redux/searchResultSlice"
 
-export interface IPlaylist{
+
+export interface IPlaylist {
     title: string;
     description: string;
     created: boolean;
@@ -20,6 +25,10 @@ export interface IPlaylist{
 
 
 const CreatePlaylistPages = () => {
+    const dispatch = useDispatch();
+    const [recent, setRecent] = useState([])
+    const result = useSelector((state: RootStateOrAny) => state.searchResult.value);
+    const [inputSearch, setInputSearch] = React.useState('')
     const token = useSelector((state: RootStateOrAny) => state.token.value);
     const [playlist, setPlaylist] = useState<IPlaylist>({
         title: "",
@@ -42,7 +51,39 @@ const CreatePlaylistPages = () => {
         }
     }
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleEnter = async (e: React.FormEvent<HTMLFormElement>) => {
+        console.log("masuk")
+        e.preventDefault()
+        setRecent(result)
+        await handleSearch()
+        // history.push("/search")
+    }
+
+    const handleSearch = async () => {
+        try {
+            const response = await axios.get("https://api.spotify.com/v1/search", {
+                params: {
+                    type: 'track',
+                    q: inputSearch,
+                    limit: 8
+                },
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+
+            })
+            console.log(typeof response.data.tracks.items)
+            dispatch(add(response.data.tracks.items))
+        }
+        catch (e) {
+            alert("Kamu belum login")
+            console.error(e)
+        }
+    }
+
+
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement> | React.KeyboardEvent<HTMLDivElement>) => {
         e.preventDefault();
         const data = await getCurrentUser(token);
         console.log(data)
@@ -124,30 +165,46 @@ const CreatePlaylistPages = () => {
     }
     return (
         <div className="App">
-            <Sidebar/>
-            <div className="content">
-
+            <Sidebar selectPage="createplaylist" />
+            <Box sx={{ width: 100 / 100 }}>
+                <ResponsiveAppBar></ResponsiveAppBar>
                 <CreatePlaylist
-                    handleText={(e: React.ChangeEvent<HTMLInputElement>)=>handleText(e)}
+                    handleText={(e: React.ChangeEvent<HTMLInputElement>) => handleText(e)}
                     newPlaylist={playlist}
-                    handleSubmit={(e: React.FormEvent<HTMLFormElement>)=>handleSubmit(e)}
-                    handleValidation={(text: string)=>handleValidation(text)}
-
+                    handleSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}
+                    inputText={playlist.title}
                 />
-                <TrackList
-                    list={DataSample}
-                    handleSelectedTrack={(data: Track)=>handleSelectedtrack(data)}
-                    handleUnselectedTrack={(data: Track)=>handleUnselectedTrack(data)}
-                />
+                <Box sx={{display:(recent.length>0)?'block':'none'}}>
+                    <Search
+                        recent={recent}
+                    />
+                </Box>
+                <Box>
+
+                    <Box
+                        display='flex'
+                        justifyContent="flex-end"
+                        sx={{
+                            my: 2,
+                            mx: 12,
+                            // '& > :not(style)': { m: 1, width: '25ch' },
+                        }}
+                    >
+                        <Typography variant="body1" sx={{ py: { sm: 3 / 2, md: 1 }, mr: 2, fontWeight: 900, display: { xs: 'none', sm: 'block' }, fontSize: { sm: 10, md: 15 } }}>Cant find your track?</Typography>
+                        <form onSubmit={handleEnter}>
+                            <TextField id="outlined-basic" label="Search Track" variant="outlined" size='small' onChange={(e) => setInputSearch(e.target.value)} />
+                        </form>
+                    </Box>
+                    <TrackList
+                        list={DataSample}
+                        handleSelectedTrack={(data: Track) => handleSelectedtrack(data)}
+                        handleUnselectedTrack={(data: Track) => handleUnselectedTrack(data)}
+                    />
+                </Box>
 
 
-                <Search
-                    token={token}
-                    
-                    handleSelectedtrack={(data: Track)=>handleSelectedtrack(data)}
-                    handleUnselectedtrack={(data: Track)=>handleUnselectedTrack(data)}
-                />
-            </div>
+
+            </Box>
         </div>
     )
 }

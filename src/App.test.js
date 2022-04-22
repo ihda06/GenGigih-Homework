@@ -3,7 +3,7 @@ import {Provider, connect} from 'react-redux'
 
 
 import App from './App';
-import store from './store';
+import store from './redux/store';
 
 
 test('renders learn react link', () => {

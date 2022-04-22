@@ -29,10 +29,10 @@ type trackProps = {
 const theme = createTheme({
     typography: {
         subtitle1: {
-            fontSize: 10
+            fontSize: 7
         },
         h5: {
-            fontSize: 15
+            fontSize: 9
         }
     },
     palette: {
@@ -67,10 +67,10 @@ const TrackCard: FC<trackProps> = (props: trackProps) => {
         // CHANGED TO MATERIAL UI COMPONENT CARD
         <ThemeProvider theme={theme}>
 
-            <Card sx={{ width: 100 / 100, maxHeight: 700 }} style={{ backgroundColor: '#111111', textAlign: 'start', color: "white" }}>
+            <Card sx={{ width: 100 / 100, maxHeight: 700 }} style={{ backgroundColor: '#111111', textAlign: 'start', color: "white", borderRadius: 15 }}>
                 <CardMedia
                     component="img"
-                    height="300"
+                    // height="150"
                     image={url}
                     alt={songName}
                 />
@@ -85,8 +85,8 @@ const TrackCard: FC<trackProps> = (props: trackProps) => {
                         {artistName}
                     </Typography>
                 </CardContent>
-                <CardActions>
-                    <Button size="small" onClick={handleSelect} variant="contained" color='primary' style={{ borderRadius: 20 }}>
+                <CardActions sx={{ml:1, pb:2}}>
+                    <Button size="small" onClick={handleSelect} variant="contained" color='primary' style={{ borderRadius: 20, fontSize: 7 }}>
                         {
                             (!selected) ? `Select` : `Deselect`
                         }
