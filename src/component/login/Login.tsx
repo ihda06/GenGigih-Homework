@@ -10,7 +10,7 @@ const Login = () => {
     if (token !== "") {
         isLogin = true;
     }
-    const CLIENT_ID = process.env.REACT_APP_SPOTIFY_KEY;
+    const CLIENT_ID = process.env.REACT_APP_VERCEL_SPOTIFY_KEY;
     const REDIRECT_URI = "http://localhost:3000/";
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
     const RESPONSE_TYPE = "token";
