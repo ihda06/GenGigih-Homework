@@ -7,7 +7,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import LandingPage from './pages/landingPage/LandingPage';
 import CreatePlaylistPages from './pages/createPlaylistPage/CreatePlaylistPage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import SearchPage from './pages/SearchPage/SearchPage';
+import SearchPage from './pages/searchPage/SearchPage';
 
 import axios from 'axios';
 // import { addUser } from './redux/userSlice';
