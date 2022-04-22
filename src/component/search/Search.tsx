@@ -10,9 +10,6 @@ import { Track } from "../trackList/TrackList";
 
 type searchProps = {
     recent: Track[];
-    // token: string;
-    // handleSelectedtrack: (data: Track) => void;
-    // handleUnselectedtrack: (data: Track) => void;
 }
 
 const Search: FC<searchProps> = (props: searchProps) => {
